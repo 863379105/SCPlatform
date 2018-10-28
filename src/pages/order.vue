@@ -12,8 +12,8 @@
           <div>订单总价：{{product.singprice * num}}</div>
           <div>支付方式：
             <RadioGroup v-model="payment" type="button" size="large">
-              <Radio label="支付宝"></Radio>
-              <Radio label="微信"></Radio>
+              <Radio value='1' label="支付宝"></Radio>
+              <Radio value='2' label="微信"></Radio>
             </RadioGroup>
           </div>
         </div>
@@ -30,43 +30,47 @@
 export default {
   data(){
     return {
-      product:this.$route.query.dataObj,
-      num:this.$route.query.value,
+      product: {
+        name     : "XXXXX 7天",
+        singprice: 9,
+      },
+      num    : 2,
+      payment: '1',
     }
   }
 }
 </script>
 <style scoped>
 .order-wrap {
-  width: 80%;
-  margin: 5rem auto;
+  width   : 80%;
+  margin  : 5rem auto;
   overflow: hidden;
-  border: green 1px solid;
+  border  : green 1px solid;
 }
 .order-wrap h1{
   text-align: center;
   background: #4fc08d;
-  color: #fff;
-  padding: 15px 15px;
+  color     : #fff;
+  padding   : 15px 15px;
 }
 
 .order-card .order-card-info{
-  font-size: 1.25rem;
-  margin: 1rem;
+  font-size  : 1.25rem;
+  margin     : 1rem;
   margin-left: 25%;
 }
 .order-card .order-card-info div{
   padding: 1rem;
 }
 .product-name{
-  overflow: hidden;
+  overflow     : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  width:25em;
+  white-space  : nowrap;
+  width        : 25em;
 }
 .order-card-opt{
   text-align: center;
-  margin: 1.5rem;
+  margin    : 1.5rem;
 }
 .order-card-opt *{
   margin: 0 0.5rem;

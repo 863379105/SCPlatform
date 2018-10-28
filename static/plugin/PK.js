@@ -1,0 +1,10 @@
+let PK = '-----BEGIN PUBLIC KEY-----' +
+'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDRSwap+r1mpw6awiX82MkNOTw0' +
+'1bav80ZnA/0+o00LYLkSnMfOxQdBJrOTn5f14uuaVhczJgImqWVcLDTvEvkLN13J' +
+'QjSu0aifbarVC/gasJ/AUZ6DMff5bsiCLQ6lgZJF2oVsK9vr1/F33Ac6oI1d0z05' +
+'F0Ci95TBeVMwpPZqjQIDAQAB' +
+'-----END PUBLIC KEY-----'
+
+export default {
+  PK,
+}

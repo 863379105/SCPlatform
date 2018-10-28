@@ -5,8 +5,8 @@
     </div>
     <div class="login-card">
       <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-        <FormItem label="账号" prop="username">
-            <Input v-model="formValidate.username" placeholder="请输入账号"></Input>
+        <FormItem label="电话" prop="username">
+            <Input v-model="formValidate.username" placeholder="请输入手机号"></Input>
         </FormItem>
         <FormItem label="密码" prop="password" >
             <Input v-model="formValidate.password" placeholder="请输入密码" type="password"></Input>
@@ -29,11 +29,11 @@
                 },
                 ruleValidate: {
                     username: [
-                        { required: true, message: 'Please fill in the user name', trigger: 'blur' }
+                        { required: true, message: '请填写你的手机号', trigger: 'blur' }
                     ],
                     password: [
-                        { required: true, message: 'Please fill in the password.', trigger: 'blur' },
-                        { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+                        { required: true, message: '请填写密码.', trigger: 'blur' },
+                        { type: 'string', min: 6, message: '用户名或密码不正确', trigger: 'blur' }
                     ]
                 }
             }
