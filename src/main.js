@@ -18,7 +18,8 @@ import DetailPage from './pages/detail';
 import OrderPage from './pages/order';
 import Cookie from "../static/plugin/cookie"
 import HTTP from "../HTTP/main"
-import Crpyto from 'jsencrypt'
+import Crypto from '../static/plugin/encrypt'
+import whiteList from "../config/routerWhiteList"
 
 
 Vue.use(VModal)
@@ -26,10 +27,12 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(iView)
 Vue.use(VueResource)
-Vue.prototype.HTTP = HTTP
+Vue.prototype.HTTP   = HTTP
+Vue.prototype.Cookie = Cookie
+Vue.prototype.Crypto = Crypto
 
 let router = new VueRouter({
-  mode  : 'history',
+  // mode  : 'history',
   routes: [
     {
       path     : '/',
@@ -56,6 +59,10 @@ let router = new VueRouter({
       component: UsercenterPage,
       children : [
         {
+          path     : '/',
+          component: UserinfoPage,
+        },
+        {
           path     : 'userinfo',
           component: UserinfoPage,
         },
@@ -74,12 +81,19 @@ let router = new VueRouter({
 
 //路由守卫
 router.beforeEach((to, from, next) => {
+  next()
+  return
+
+  //TODO: 测试
+  const WList = whiteList.list
   //进度条
   iView.LoadingBar.start()
-  //如果是去登陆页，直接next
-  if (to.path == "/login") {
+  //如果是白名单中的路由，直接跳转
+  for(var i in WList) {
+    if(to.path == WList[i]) {
       next()
       return
+    }
   }
   //判断当前登录身份
   let cookie = Cookie.getCookie('scp_token')

@@ -32,16 +32,74 @@
         </h2>
         <template>
           <div v-for="item in ProductsList" class="productList">
-            <div class="productName">{{ item.name }}</div>
+            <div class="productName" @click="toDetail">{{ item.name }}</div>
             <div class="productPrice">{{ item.singprice}}元</div>
             <div class="productStock">{{ item.stock }}个</div>
             <div class="productButton">
                <router-link
                     :to="{
-                        path: 'detail',     //要跳转的路径
+                        path : 'detail',   //要跳转的路径
                         query: {
-                            id:item.id,
-                            dataObj:item
+                            id     : item.id,
+                            dataObj: item
+                        }
+                    }"
+                >
+                <i-button type="success" ghost>购买</i-button></router-link>
+            </div>
+          </div>
+          <!-- <div v-if="!Product.last" class="hr"></div> -->
+        </template>
+      </div>
+
+      <div class="index-left-block">
+        <h2>
+          <div id="pInfo">商品信息</div>
+          <div id="pPrice">商品价格</div>
+          <div id="pStock">商品库存</div>
+          <div id="pOpt">操作</div>
+        </h2>
+        <template>
+          <div v-for="item in ProductsList" class="productList">
+            <div class="productName" @click="toDetail">{{ item.name }}</div>
+            <div class="productPrice">{{ item.singprice}}元</div>
+            <div class="productStock">{{ item.stock }}个</div>
+            <div class="productButton">
+               <router-link
+                    :to="{
+                        path : 'detail',   //要跳转的路径
+                        query: {
+                            id     : item.id,
+                            dataObj: item
+                        }
+                    }"
+                >
+                <i-button type="success" ghost>购买</i-button></router-link>
+            </div>
+          </div>
+          <!-- <div v-if="!Product.last" class="hr"></div> -->
+        </template>
+      </div>
+
+      <div class="index-left-block">
+        <h2>
+          <div id="pInfo">商品信息</div>
+          <div id="pPrice">商品价格</div>
+          <div id="pStock">商品库存</div>
+          <div id="pOpt">操作</div>
+        </h2>
+        <template>
+          <div v-for="item in ProductsList" class="productList">
+            <div class="productName" @click="toDetail">{{ item.name }}</div>
+            <div class="productPrice">{{ item.singprice}}元</div>
+            <div class="productStock">{{ item.stock }}个</div>
+            <div class="productButton">
+               <router-link
+                    :to="{
+                        path : 'detail',   //要跳转的路径
+                        query: {
+                            id     : item.id,
+                            dataObj: item
                         }
                     }"
                 >
@@ -59,11 +117,11 @@
 export default {
   data () {
     return {
-      newsList : [],
+      newsList      : [],
       CusServcieList: {
         CusService1: {
           title: '客服1',
-          list: [
+          list : [
             {
               name: 'QQ：123456678',
             },
@@ -80,7 +138,7 @@ export default {
         },
         CusService2: {
           title: '客服2',
-          list: [
+          list : [
             {
               name: 'QQ：123456678',
 
@@ -102,6 +160,11 @@ export default {
       ProductsList: [],
     }
   },
+  methods: {
+    toDetail () {
+      this.$router.push('/detail')
+    }
+  },
   created: function(){
     this.$http.get('http://localhost:3000/getProductsList')
       .then((res) =>{
@@ -116,13 +179,13 @@ export default {
 
 <style scoped>
 .index-wrap {
-  width: 1200px;
-  margin: 0 auto;
+  width   : 1200px;
+  margin  : 0 auto;
   overflow: hidden;
 }
 .index-left {
-  float: left;
-  width: 300px;
+  float     : left;
+  width     : 300px;
   text-align: left;
 }
 .index-right {
@@ -130,7 +193,7 @@ export default {
   width: 900px;
 }
 .index-left-block {
-  margin: 20px;
+  margin    : 20px;
   background: #fff;
   box-shadow: 0 0 1px #ddd;
 }
@@ -138,16 +201,16 @@ export default {
   margin-bottom: 20px;
 }
 .index-left-block h2 {
-  font-size: 1rem;
-  background: #4fc08d;
-  color: #fff;
-  padding: 15px 15px;
+  font-size    : 1rem;
+  background   : #4fc08d;
+  color        : #fff;
+  padding      : 15px 15px;
   margin-bottom: 20px;
 }
 .index-left-block h3 {
-  padding: 0 15px 5px 15px;
+  padding    : 0 15px 5px 15px;
   font-weight: bold;
-  color: #222;
+  color      : #222;
 }
 .index-left-block ul {
   padding: 10.00px 15px;
@@ -159,12 +222,12 @@ export default {
   overflow: hidden;
 }
 .index-board-item {
-  float: left;
-  width: 400px;
-  background: #fff;
-  box-shadow: 0 0 1px #ddd;
-  padding: 20px;
-  margin-right: 20px;
+  float        : left;
+  width        : 400px;
+  background   : #fff;
+  box-shadow   : 0 0 1px #ddd;
+  padding      : 20px;
+  margin-right : 20px;
   margin-bottom: 20px;
 }
 
@@ -175,25 +238,25 @@ export default {
   margin-top: 20px;
 }
 .new-item {
-  display: inline-block;
-  width: 230px;
-  overflow: hidden;
+  display      : inline-block;
+  width        : 230px;
+  overflow     : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space  : nowrap;
 }
 .lastest-news {
   min-height: 512px;
 }
 .hot-tag {
   background: red;
-  color: #fff;
+  color     : #fff;
 }
 .new-item {
-  display: inline-block;
-  width: 230px;
-  overflow: hidden;
+  display      : inline-block;
+  width        : 230px;
+  overflow     : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space  : nowrap;
 }
 
 #productTitle{
@@ -204,16 +267,17 @@ export default {
 }
 .productList div{
   font-size: 1.25rem;
-  display:inline;
-  padding: 0 1rem;
+  display  : inline;
+  padding  : 0 1rem;
 }
 .productList .productName{
-  display: block;
-  overflow: hidden;
+  display      : block;
+  overflow     : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  width:25em;
-  float: left;
+  white-space  : nowrap;
+  width        : 25em;
+  float        : left;
+  cursor       : pointer;
 }
 .productList .productPrice{
   padding: 0 2rem;
@@ -229,9 +293,9 @@ h2 div{
   display: inline;
 }
 #pInfo{
-  display: block;
-  width:30em;
-  float: left;
+  display   : block;
+  width     : 30em;
+  float     : left;
   text-align: center;
 }
 #pPrice{

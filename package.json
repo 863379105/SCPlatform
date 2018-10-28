@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "iview": "^3.1.3",
     "jsencrypt": "^3.0.0-rc.1",
     "json-server": "^0.14.0",
