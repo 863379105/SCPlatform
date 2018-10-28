@@ -41,12 +41,18 @@
         },
         methods: {
             handleSubmit (name) {
-                this.$refs[name].validate((valid) => {
+                this.$refs[name].validate(valid => {
                     if (valid) {
+                        this.login()
                         this.$Message.success('Success!');
                     } else {
-                        this.$Message.error('Fail!');
+                        this.$Message.error('请正确填写用户名和密码!');
                     }
+                })
+            },
+            login () {
+                this.HTTP.login(this.formValidate.username, this.formValidate.password).then(res => {
+                    console.log(res)
                 })
             },
             handleReset (name) {
@@ -59,16 +65,16 @@
 <style scoped>
 .login-wrap{
   text-align: center;
-  margin: 5rem auto;
-  width: 40%;
-  border: 1px #4fc08d solid;
+  margin    : 5rem auto;
+  width     : 40%;
+  border    : 1px #4fc08d solid;
 }
 .login-titel{
-  height: 5rem;
+  height     : 5rem;
   line-height: 5rem;
-  padding: 5rem auto;
-  font-size: 2rem;
-  background: #4fc08d;
+  padding    : 5rem auto;
+  font-size  : 2rem;
+  background : #4fc08d;
 
 }
 .login-card{
