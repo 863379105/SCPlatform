@@ -1,0 +1,93 @@
+{
+  "getProductsList":[
+    {
+      "name": "【CDK】酷狗豪华会员+音乐包300首【CDK】酷狗豪华会员+音乐包300首【CDK】酷狗豪华会员+音乐包300首",
+      "id": 1,
+      "singprice":10.00,
+      "stock":999
+    },
+    {
+      "name": "【CDK】酷狗豪华会员+音乐包300首",
+      "id": 2,
+      "singprice":10.00,
+      "stock":957
+    },
+    {
+      "name": "【CDK】酷狗豪华会员+音乐包300首",
+      "id":3,
+      "singprice":10.00,
+      "stock":425
+    }
+  ],
+  "getNewsList": [
+    {
+      "id": 1,
+      "title": "新闻条目1新闻条目1新闻条目1新闻条目1",
+      "url": "http://starcraft.com"
+    },
+    {
+      "id": 2,
+      "title": "新闻条目2新闻条目2新闻条目2新闻条目2",
+      "url": "http://warcraft.com"
+    },
+    {
+      "id": 3,
+      "title": "新闻条3新闻条3新闻条3",
+      "url": "http://overwatch.com"
+    },
+    {
+      "id": 4,
+      "title": "新闻条4广告发布",
+      "url": "http://hearstone.com"
+    }
+  ],
+  "login": {
+    "id": "1",
+    "username": "18857594955",
+    "level": "3",
+    "balance": "0",
+    "qq": "12345566",
+    "email":"12414@qq.com",
+    "ltimes": "0",
+    "regtime": "2018-10-24 15:47:31",
+    "lastip": "127.0.0.1"
+
+  },
+  "getPrice": {
+    "amount": 678
+  },
+  "createOrder": {
+    "orderId": "6djk979"
+  },
+  "getOrderList": {
+    "list": [
+      {
+        "orderId": "ddj123",
+        "product": "数据统计",
+        "version": "高级版",
+        "period": "1年",
+        "buyNum": 2,
+        "date": "2016-10-10",
+        "amount": "500元"
+      },
+      {
+        "orderId": "yuj583",
+        "product": "流量分析",
+        "version": "户外版",
+        "period": "3个月",
+        "buyNum": 1,
+        "date": "2016-5-2",
+        "amount": "2200元"
+      },
+      {
+        "orderId": "pmd201",
+        "product": "广告发布",
+        "version": "商铺版",
+        "period": "3年",
+        "buyNum": 12,
+        "date": "2016-8-3",
+        "amount": "7890元"
+      }
+    ]
+  }
+}
